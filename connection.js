@@ -27,8 +27,10 @@ connection.query('SELECT * FROM city', function (error, results, fields) {
 
 
 connection.query('INSERT INTO city SET ?', {
-  
+
+  ID:50000,
   Name: 'cairo',
+  CountryCode: 'AFG'
 
 }
 , (err, result, fields) => {
@@ -36,13 +38,15 @@ connection.query('INSERT INTO city SET ?', {
     console.log('Insertion error:');
     throw err;
   }
+
+  console.log('insertion is good');
   console.log(result);
 });
 
 //update 
-connection.query('update city  set ? where ?',[{Name :'cairo'},{CounrtyCode :'AFG'}],(err,result,fields) =>{
+connection.query('update city  set ? where ?',[{Name :'cairo'},{CountryCode :'AFG'}],(err,result,fields) =>{
   if (err) {
-    console.log(' error:');
+    console.log(' error');
     throw err;
   }
   console.log(result);
@@ -73,7 +77,7 @@ connection.query(q,(err,result ,fields) => {
     throw err;
   }
   console.log(result);
-})
+});
 
 connection.end();
 
